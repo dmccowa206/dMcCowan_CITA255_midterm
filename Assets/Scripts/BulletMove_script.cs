@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BulletMove_script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float bulletSpeed = 16f;
     void Update()
     {
-        
+        //get current pos
+        Vector3 bulletPos = transform.position;
+        if (bulletPos.x > 12f)
+        {
+            Destroy(gameObject);
+        }
+
+        //change the vector pos
+        bulletPos.x += bulletSpeed * Time.deltaTime;//Time.deltaTime is the interval in frames
+
+        transform.position = bulletPos; //move the bullet to new pos
+
     }
+  
 }
