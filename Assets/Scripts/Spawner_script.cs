@@ -12,12 +12,12 @@ public class Spawner_script : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemy), 0, 2.5f);
+        InvokeRepeating(nameof(SpawnEnemy), 0, 2.5f);//consistently spawn 1 enemy every 2.5s
     }
     void Update()
     {
-        spawnCounter += Time.deltaTime;
-        spawnRng = UnityEngine.Random.Range(0.85f, 1.15f);
+        spawnCounter += Time.deltaTime;//set a spawn timer min(0.05s) which gets ~10% quicker every 10s
+        spawnRng = UnityEngine.Random.Range(0.85f, 1.15f);//spawn timer can vary + or - 15%
         spawnInterval = Mathf.Pow(0.90f, Time.timeSinceLevelLoad / 10f);
         if (spawnRng * spawnInterval < 0.05f)
         {
@@ -34,7 +34,7 @@ public class Spawner_script : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))//Manually spawn enemy for debug
+        if (Input.GetKeyDown(KeyCode.LeftArrow))//Manually spawn enemy for debug
         {
             SpawnEnemy();
         }

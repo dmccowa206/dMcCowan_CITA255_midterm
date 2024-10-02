@@ -9,7 +9,7 @@ public class BulletMove_script : MonoBehaviour
     {
         //get current pos
         Vector3 bulletPos = transform.position;
-        if (bulletPos.x > 12f)
+        if (bulletPos.x > 12f)//destroy bullet if offscreen
         {
             Destroy(gameObject);
         }

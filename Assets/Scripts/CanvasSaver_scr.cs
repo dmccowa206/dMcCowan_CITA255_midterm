@@ -20,8 +20,8 @@ public class CanvasSaver_scr : MonoBehaviour
         }
     }
 
-    private void Start()//tries to reassign camera to canvas
-    {
-        GetComponent<Canvas>().worldCamera = Camera.main;
-    }
+    //private void Start()//tried to reassign camera to canvas NOT FUNCTIONAL
+    //{
+    //    GetComponent<Canvas>().worldCamera = Camera.main;
+    //}
 }

@@ -5,23 +5,23 @@ using UnityEngine;
 public class Enemy_script : MonoBehaviour
 {
     public float enemySpeed;
+    private Vector3 enemyPos;
     void Start()
     {
-        enemySpeed = UnityEngine.Random.Range(1.5f, 5f);
+        enemySpeed = UnityEngine.Random.Range(1.5f, 5f);//randomize initial speed
     }
 
-    // Update is called once per frame
     void Update()
     {
-        enemySpeed += UnityEngine.Random.Range(-0.02f, 0.02f);
-        Vector3 enemyPos = transform.position;
+        enemySpeed += UnityEngine.Random.Range(-0.02f, 0.02f);//speed changes a small random amount every frame
+        enemyPos = transform.position;
         if (enemyPos.x < -12f)
-        {
+        {//if enemy goes off the left side of the screen, it jumps back to the right
             enemyPos.x = 12f;
-            enemySpeed += 0.25f;
+            enemySpeed += 0.5f;//and speeds up
             transform.position = enemyPos;
         }
-        enemyPos.x -= enemySpeed * Time.deltaTime;
+        enemyPos.x -= enemySpeed * Time.deltaTime;//moves left at speed
         transform.position = enemyPos;
 
     }
